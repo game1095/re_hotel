@@ -1,0 +1,8 @@
+<h1>HOTEL</h1>
+<% if current_manager %>
+    <%= link_to 'Manage Employee' %> |
+    <%= link_to 'Room Reservation Page' %> |
+    <%= link_to "Logout" , destroy_manager_session_path , method: :delete%>
+  <% else %>
+    <%= link_to "Log in" , new_manager_session_path %>
+<% end %>
