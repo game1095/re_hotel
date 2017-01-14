@@ -28,6 +28,7 @@
                 <li><%= link_to "Employee Page" , employees_path %></li>
                 <li><%= link_to "Room Reservation", rooms_path %></li>
                 <li><%= link_to "Logout", destroy_manager_session_path , method: :delete %></li>
+                <li>Manager : <%= current_manager.email %></li>
               <% end %>
             </div>
 
