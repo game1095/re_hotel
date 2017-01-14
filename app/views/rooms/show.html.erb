@@ -1,62 +1,71 @@
-<h2>Room Information</h2>
-<p>
-  <strong>Room Number</strong>
-  <%= @room.room_number %>
-</p>
+้้<h1 class="text-center">Room Reservation</h1>
+<div class="container">
+  <h2>Room Information</h2>
+  <div class="well">
+    <p>
+      <strong>Room Number</strong>
+      <%= @room.room_number %>
+    </p>
 
-<p>
-  <strong>Room Price</strong>
-  <%= @room.room_price %> ฿
-</p>
+    <p>
+      <strong>Room Price</strong>
+      <%= @room.room_price %> ฿
+    </p>
 
-<p>
-  <strong>Room Desc</strong>
-  <%= @room.room_des %>
-</p>
+    <p>
+      <strong>Room Desc</strong>
+      <%= @room.room_des %>
+    </p>
+    <p>
+      <%= link_to "BACK" , rooms_path , class: 'btn btn-primary' %>
+    </p>
+  </div>
+  <h2>กรอกข้อมูลลูกค้าสำหรับจองห้อง</h2>
+  <div class="well">
+  <%= form_for([@room, @room.customer.build]) do |f| %>
+    <p class="form-group">
+      <%= f.label :first_name  %>
+      <%= f.text_field :first_name , class: 'form-control' %>
+    </p>
 
-<h2>กรอกข้อมูลลูกค้าสำหรับจองห้อง</h2>
-<%= form_for([@room, @room.customer.build]) do |f| %>
-  <p>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </p>
+    <p>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name , class: 'form-control' %>
+    </p>
 
-  <p>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </p>
-
-  <p>
-    <%= f.label :tel_no %>
-    <%= f.number_field :tel_no %>
-  </p>
-  <p>
-    <%= f.submit "Reservse Room" %>
-  </p>
-  <p>
-    <!-- <%= select_date Date.today %> -->
-  </p>
-<% end %>
-
-<h2>ใครจองบ้าง</h2>
-<% @room.customer.each do |reservation| %>
-  <p>
-    <strong>Customer ID</strong>
-    <%= reservation.id %>
-  </p>
-  <p>
-    <strong>First Name</strong>
-    <%= reservation.first_name %>
-  </p>
-  <p>
-    <strong>Last Name</strong>
-    <%= reservation.last_name %>
-  </p>
-  <p>
-    <strong>Tel No</strong>
-    <%= reservation.tel_no %>
-  </p>
-  <hr>
-<% end %>
-
-<%= link_to "back" , rooms_path %>
+    <p>
+      <%= f.label :tel_no %>
+      <%= f.number_field :tel_no , class: 'form-control' %>
+    </p>
+    <p>
+      <%= f.submit "RESERSE ROOM" , class: 'btn btn-success' %>
+    </p>
+    <p>
+      <!-- <%= select_date Date.today %> -->
+    </p>
+  <% end %>
+  </div>
+  <h2>ใครจองบ้าง</h2>
+  <div class="well">
+  <% @room.customer.each do |reservation| %>
+    <p>
+      <strong>Customer ID</strong>
+      <%= reservation.id %>
+    </p>
+    <p>
+      <strong>First Name</strong>
+      <%= reservation.first_name %>
+    </p>
+    <p>
+      <strong>Last Name</strong>
+      <%= reservation.last_name %>
+    </p>
+    <p>
+      <strong>Tel No</strong>
+      <%= reservation.tel_no %>
+    </p>
+    <hr>
+  <% end %>
+ </div>
+  <%= link_to "BACK" , rooms_path , class: 'btn btn-primary' %>
+</div>

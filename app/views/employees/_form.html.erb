@@ -1,21 +1,22 @@
-<%= form_for @employee do |f| %>
-  <p>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </p>
+<div class="well">
+  <%= form_for @employee do |f| %>
+    <p class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name , class: 'form-control' %>
+    </p>
 
-  <p>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </p>
+    <p class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name , class: 'form-control' %>
+    </p>
 
-  <p>
-    <%= f.label :department %>
-    <%= f.text_field :department %>
-  </p>
+    <p class="form-group">
+      <%= f.label :department %>
+      <%= f.text_field :department , class:'form-control' %>
+    </p>
 
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+    <p>
+      <%= f.submit class:'btn btn-primary'%>
+    </p>
+  <% end %>
+</div>

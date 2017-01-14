@@ -1,29 +1,32 @@
-<h1>Manament Employee Page</h1>
-<%= link_to "Add new Employee" , new_employee_path %>
-<%= link_to "Back" , root_path %>
-
-<table border="1px">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th colspan="3">Tools</th>
-    </tr>
-  </thead>
-  <% @employees.each do |emp|  %>
-  <tbody>
-    <tr>
-      <td><%= emp.id%></td>
-      <td><%= emp.first_name%></td>
-      <td><%= emp.last_name %></td>
-      <td><%= link_to 'SHOW' , employee_path(emp) %></td>
-      <td><%= link_to 'EDIT' , edit_employee_path(emp) %></td>
-      <td><%= link_to 'DELETE' , employee_path(emp),
-                                 method: :delete ,
-                                 data: {confirm: "Are You sure to delete #{emp.first_name}"}
-                                 %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+<div class="container">
+  <h1>Manament Employee Page</h1>
+  <div class="well">
+    <%= link_to "BACK" , root_path , class: 'btn btn-danger'%>
+    <%= link_to "NEW EMPLOYEE" , new_employee_path , class: 'btn btn-primary' %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th colspan="3">Tools</th>
+      </tr>
+    </thead>
+    <% @employees.each do |emp|  %>
+    <tbody>
+      <tr>
+        <td><%= emp.id%></td>
+        <td><%= emp.first_name%></td>
+        <td><%= emp.last_name %></td>
+        <td><%= link_to 'SHOW' , employee_path(emp) %></td>
+        <td><%= link_to 'EDIT' , edit_employee_path(emp) %></td>
+        <td><%= link_to 'DELETE' , employee_path(emp),
+        method: :delete ,
+        data: {confirm: "Are You sure to delete #{emp.first_name}"}
+        %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+</div>
+</div>

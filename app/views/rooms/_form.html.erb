@@ -1,19 +1,21 @@
-<%= form_for @room  do |f| %>
-  <p>
-    <%= f.label :room_number %>
-    <%= f.text_field :room_number %>
-  </p>
-  <p>
-    <%= f.label :room_price %>
-    <%= f.number_field :room_price %>
-  </p>
+<div class="well">
+  <%= form_for @room  do |f| %>
+    <p class="form-group">
+      <%= f.label :room_number %>
+      <%= f.text_field :room_number , class: 'form-control' %>
+    </p>
+    <p class="form-group">
+      <%= f.label :room_price %>
+      <%= f.number_field :room_price , class: 'form-control' %>
+    </p>
 
-  <p>
-    <%= f.label :room_des %>
-    <%= f.text_area :room_des %>
-  </p>
+    <p>
+      <%= f.label :room_des  %>
+      <%= f.text_area :room_des , class: 'form-control' %>
+    </p>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+    <p>
+      <%= f.submit class: 'btn btn-primary' %>
+    </p>
+  <% end %>
+</div>
