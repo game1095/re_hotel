@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
 
+  before_action :authenticate_manager!
+
   def index
     @rooms = Room.all.order("created_at DESC")
   end

@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_manager!
+
   def create
     @room = Room.find(params[:room_id])
     @customer = @room.customer.create(customer_params)
