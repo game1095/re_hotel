@@ -14,7 +14,7 @@
   <%= @room.room_des %>
 </p>
 
-<h2>Add new custoemr</h2>
+<h2>กรอกข้อมูลลูกค้าสำหรับจองห้อง</h2>
 <%= form_for([@room, @room.customer.build]) do |f| %>
   <p>
     <%= f.label :first_name %>
@@ -31,12 +31,19 @@
     <%= f.number_field :tel_no %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit "Reservse Room" %>
+  </p>
+  <p>
+    <!-- <%= select_date Date.today %> -->
   </p>
 <% end %>
 
 <h2>ใครจองบ้าง</h2>
 <% @room.customer.each do |reservation| %>
+  <p>
+    <strong>Customer ID</strong>
+    <%= reservation.id %>
+  </p>
   <p>
     <strong>First Name</strong>
     <%= reservation.first_name %>
