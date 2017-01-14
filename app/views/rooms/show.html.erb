@@ -1,3 +1,4 @@
+<h2>Room Information</h2>
 <p>
   <strong>Room Number</strong>
   <%= @room.room_number %>
@@ -12,3 +13,41 @@
   <strong>Room Desc</strong>
   <%= @room.room_des %>
 </p>
+
+<h2>Add new custoemr</h2>
+<%= form_for([@room, @room.customer.build]) do |f| %>
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :tel_no %>
+    <%= f.number_field :tel_no %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>ใครจองบ้าง</h2>
+<% @room.customer.each do |reservation| %>
+  <p>
+    <strong>First Name</strong>
+    <%= reservation.first_name %>
+  </p>
+  <p>
+    <strong>Last Name</strong>
+    <%= reservation.last_name %>
+  </p>
+  <p>
+    <strong>Tel No</strong>
+    <%= reservation.tel_no %>
+  </p>
+  <hr>
+<% end %>
