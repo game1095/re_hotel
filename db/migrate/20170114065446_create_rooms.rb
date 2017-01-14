@@ -3,7 +3,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
     create_table :rooms do |t|
       t.string :room_number
       t.string :room_price
-
+      # t.string :room-des
       t.timestamps
     end
   end
