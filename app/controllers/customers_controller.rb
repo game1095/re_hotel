@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
     @room = Room.find(params[:room_id])
     @customer = @room.customer.create(customer_params)
 
-    redirect_to rooms_path
+    redirect_to @room
   end
 
   private
