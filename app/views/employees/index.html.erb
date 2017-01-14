@@ -8,7 +8,7 @@
       <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th></th>
+      <th colspan="3">Tools</th>
     </tr>
   </thead>
   <% @employees.each do |emp|  %>
@@ -17,6 +17,7 @@
       <td><%= emp.id%></td>
       <td><%= emp.first_name%></td>
       <td><%= emp.last_name %></td>
+      <td><%= link_to 'SHOW' , employee_path(emp) %></td>
       <td><%= link_to 'EDIT' , edit_employee_path(emp) %></td>
       <td><%= link_to 'DELETE' , employee_path(emp),
                                  method: :delete ,
