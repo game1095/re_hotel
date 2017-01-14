@@ -24,21 +24,19 @@
           </div>
           <div class="collapse navbar-collapse" id="main-nav-collapse">
             <div class="nav navbar-nav navbar-right">
-
-            </div>
-            <ul class="nav navbar-nav navbar-right">
               <% if current_manager %>
                 <li><%= link_to "Employee Page" , employees_path %></li>
                 <li><%= link_to "Room Reservation", rooms_path %></li>
                 <li><%= link_to "Logout", destroy_manager_session_path , method: :delete %></li>
               <% end %>
-            </ul>
+            </div>
+
           </div>
         </div>
       </nav>
       <div class="container">
         <p class="notice alert-success"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <p class="alert-danger"><%= alert%> </p>
     </div>
     <%= yield %>
   </body>
