@@ -1,0 +1,14 @@
+<%= form_for @room , url:rooms_path do |f| %>
+  <p>
+    <%= f.label :room_number %>
+    <%= f.text_field :room_number %>
+  </p>
+  <p>
+    <%= f.label :room_price %>
+    <%= f.number_field :room_price %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

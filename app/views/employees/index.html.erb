@@ -20,7 +20,7 @@
       <td><%= link_to 'EDIT' , edit_employee_path(emp) %></td>
       <td><%= link_to 'DELETE' , employee_path(emp),
                                  method: :delete ,
-                                 data: {confirm: "Are You sure"}
+                                 data: {confirm: "Are You sure to delete #{emp.first_name}"}
                                  %></td>
     </tr>
   </tbody>

@@ -1,0 +1,24 @@
+<h1>Room Reservation Page</h1>
+<%= link_to "Back" , welcomes_index_path %>
+<%= link_to "new room" , new_room_path %>
+
+<table border="1px">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Room Number</th>
+      <th>Room Price</th>
+    </tr>
+  </thead>
+  <% @rooms.each do |room| %>
+  <tbody>
+    <tr>
+      <td><%= room.id %></td>
+      <td><%= room.room_number %></td>
+      <td><%= room.room_price %></td>
+      <td><%= link_to "Edit" , edit_room_path(room) %></td>
+      <td><%= link_to "Delete" , room_path(room) , method: :delete , data:{confirm: "Are you sure do delete room  #{room.room_number}"} %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
