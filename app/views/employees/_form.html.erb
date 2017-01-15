@@ -2,17 +2,17 @@
   <%= form_for @employee do |f| %>
     <p class="form-group">
       <%= f.label :first_name %>
-      <%= f.text_field :first_name , class: 'form-control' %>
+      <%= f.text_field :first_name , class: 'form-control'  %>
     </p>
 
     <p class="form-group">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name , class: 'form-control' %>
+      <%= f.text_field :last_name , class: 'form-control'  %>
     </p>
 
     <p class="form-group">
       <%= f.label :department %>
-      <%= f.text_field :department , class:'form-control' %>
+      <%= f.text_field :department , class:'form-control', require: true %>
     </p>
 
     <p>
