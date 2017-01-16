@@ -18,7 +18,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     if @employee.save
-      EmployeeMailer.welcome_email(@employee).deliver_now
+      # EmployeeMailer.welcome_email(@employee).deliver_now
       redirect_to employees_path
     else
       render 'new'
