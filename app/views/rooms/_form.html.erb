@@ -1,3 +1,14 @@
+<style media="screen">
+  .button {
+    float: right;
+    margin-right: 2px;
+  }
+
+  .well {
+    min-height: 300px
+  }
+</style>
+
 <div class="well">
   <%= form_for @room  do |f| %>
   <% if @room.errors.any? %>
@@ -24,7 +35,8 @@
     </p>
 
     <p>
-      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to "Cancel" , rooms_path , class: 'btn btn-default button' %>
+      <%= f.submit class: 'btn btn-primary button' %>
     </p>
   <% end %>
 </div>

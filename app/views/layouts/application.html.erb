@@ -4,6 +4,7 @@
     <title>Hotel Application</title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -19,16 +20,16 @@
             </button>
             <%= link_to root_path , class: 'navbar-brand'  do %>
             <i class="fa fa-users"></i>
-            Room Booking
+            Room Booking System
             <% end %>
           </div>
           <div class="collapse navbar-collapse" id="main-nav-collapse">
             <div class="nav navbar-nav navbar-right">
               <% if current_manager %>
-                <li><%= link_to "Employee Page" , employees_path %></li>
+                <li><%= link_to "Employee Page" , employees_path%></li>
                 <li><%= link_to "Room Reservation", rooms_path %></li>
                 <li><%= link_to "Logout", destroy_manager_session_path , method: :delete %></li>
-                <li>Manager : <%= current_manager.email %></li>
+                <li style="margin-top:15px">Manager : <%= current_manager.email %></li>
               <% end %>
             </div>
 

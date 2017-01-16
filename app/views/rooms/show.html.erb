@@ -1,71 +1,97 @@
-้้<h1 class="text-center">Room Reservation</h1>
-<div class="container">
-  <h2>Room Information</h2>
-  <div class="well">
-    <p>
-      <strong>Room Number</strong>
-      <%= @room.room_number %>
-    </p>
+<style media="screen">
+  .button {
+    float: right;
+    margin-right: 2px;
+  }
 
-    <p>
-      <strong>Room Price</strong>
-      <%= @room.room_price %> ฿
-    </p>
+  .well2 {
+    min-height: 350px
+  }
+</style>
 
-    <p>
-      <strong>Room Desc</strong>
-      <%= @room.room_des %>
-    </p>
-    <p>
-      <%= link_to "BACK" , rooms_path , class: 'btn btn-primary' %>
-    </p>
+
+  <div class="container">
+    <h1 class="text-center">Room Reservation</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="well">
+            <h2 class="text-center">Room Information</h2>
+            <p>
+              <strong>Number</strong>
+              <%= @rooms.room_number %>
+            </p>
+
+            <p>
+              <strong>Price</strong>
+              <%= @rooms.room_price %> ฿
+
+            </p>
+            <p>
+              <strong>Description</strong>
+              <%= @rooms.room_des %>
+            </p>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="well">
+            <h2 class="text-center">Customer's reservation</h2>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Telephone Number</th>
+                  <th>Book Date</th>
+                </tr>
+              </thead>
+              <% @rooms.customer.each do |reservation| %>
+              <tbody>
+                <tr>
+                  <td><%= reservation.first_name%></td>
+                  <td><%= reservation.last_name %> </td>
+                  <td><%= reservation.tel_no%></td>
+                </tr>
+              </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+      <div class="well well2">
+        <h2>Customer information</h2>
+        <%= form_for([@rooms, @rooms.customer.build]) do |f| %>
+        <p class="form-group">
+          <%= f.label :first_name  %>
+          <%= f.text_field :first_name , class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name , class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= f.label :tel_no %>
+          <%= f.number_field :tel_no , class: 'form-control' %>
+        </p>
+        <p>
+          <%= link_to "Back", rooms_path , class: 'btn btn-default button' %>
+          <%= f.submit "RESERSE ROOM" , class: 'btn btn-success button' %>
+        </p>
+
+        <% end %>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
-  <h2>กรอกข้อมูลลูกค้าสำหรับจองห้อง</h2>
-  <div class="well">
-  <%= form_for([@room, @room.customer.build]) do |f| %>
-    <p class="form-group">
-      <%= f.label :first_name  %>
-      <%= f.text_field :first_name , class: 'form-control' %>
-    </p>
-
-    <p>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name , class: 'form-control' %>
-    </p>
-
-    <p>
-      <%= f.label :tel_no %>
-      <%= f.number_field :tel_no , class: 'form-control' %>
-    </p>
-    <p>
-      <%= f.submit "RESERSE ROOM" , class: 'btn btn-success' %>
-    </p>
-    <p>
-      <!-- <%= select_date Date.today %> -->
-    </p>
-  <% end %>
-  </div>
-  <h2>ใครจองบ้าง</h2>
-  <div class="well">
-  <% @room.customer.each do |reservation| %>
-    <p>
-      <strong>Customer ID</strong>
-      <%= reservation.id %>
-    </p>
-    <p>
-      <strong>First Name</strong>
-      <%= reservation.first_name %>
-    </p>
-    <p>
-      <strong>Last Name</strong>
-      <%= reservation.last_name %>
-    </p>
-    <p>
-      <strong>Tel No</strong>
-      <%= reservation.tel_no %>
-    </p>
-    <hr>
-  <% end %>
- </div>
-  <%= link_to "BACK" , rooms_path , class: 'btn btn-primary' %>
 </div>

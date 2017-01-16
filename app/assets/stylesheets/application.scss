@@ -17,9 +17,18 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-body , nav{
-  background: #FFAFBD; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #FFAFBD , #ffc3a0); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #FFAFBD , #ffc3a0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// body , nav{
+//   background: #FFAFBD; /* fallback for old browsers */
+//   background: -webkit-linear-gradient(to left, #FFAFBD , #ffc3a0); /* Chrome 10-25, Safari 5.1-6 */
+//   background: linear-gradient(to left, #FFAFBD , #ffc3a0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//
+//
+// }
+nav{
 
+
+background: #eacda3; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #eacda3 , #d6ae7b); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #eacda3 , #d6ae7b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
 }

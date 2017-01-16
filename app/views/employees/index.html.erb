@@ -1,8 +1,16 @@
+<style media="screen">
+  .letter {
+    color:red
+  }
+</style>
+
 <div class="container">
   <h1>Manament Employee Page</h1>
   <div class="well">
-    <%= link_to "BACK" , root_path , class: 'btn btn-danger'%>
-    <%= link_to "NEW EMPLOYEE" , new_employee_path , class: 'btn btn-primary' %>
+    <div style="  float: right; margin-right: 10px;">
+      <%= link_to "NEW EMPLOYEE" , new_employee_path , class: 'btn btn-primary' %>
+      <%= link_to "BACK" , root_path , class: 'btn btn-default '%>
+    </div>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -22,6 +30,7 @@
         <td><%= link_to 'EDIT' , edit_employee_path(emp) %></td>
         <td><%= link_to 'DELETE' , employee_path(emp),
         method: :delete ,
+        class: 'letter' ,
         data: {confirm: "Are You sure to delete #{emp.first_name}"}
         %></td>
       </tr>

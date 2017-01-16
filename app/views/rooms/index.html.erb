@@ -1,11 +1,17 @@
+<style media="screen">
+  .letter {
+    color:red
+  }
+</style>
+
 
 <div class="container">
   <h1>Room Reservation Page</h1>
   <div class="well">
-    <p>
-      <%= link_to "BACK" , welcomes_index_path , class: 'btn btn-danger'%>
+    <div style="  float: right; margin-right: 10px;">
       <%= link_to "NEW ROOM" , new_room_path  , class: 'btn btn-primary'%>
-    </p>
+      <%= link_to "BACK" , welcomes_index_path , class: 'btn btn-default'%>
+    </div>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -22,7 +28,7 @@
           <td><%= room.room_price %>฿</td>
           <td><%= link_to 'Book' , room_path(room) %></td>
           <td><%= link_to "Edit" , edit_room_path(room) %></td>
-          <td><%= link_to "Delete" , room_path(room) , method: :delete , data:{confirm: "Are you sure do delete room  #{room.room_number}"} %></td>
+          <td><%= link_to "Delete" , room_path(room) , method: :delete , data:{confirm: "Are you sure do delete room  #{room.room_number}"} , class: 'letter'%></td>
         </tr>
       </tbody>
       <% end %>
