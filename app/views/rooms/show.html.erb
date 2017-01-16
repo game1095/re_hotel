@@ -49,6 +49,7 @@
                   <th>วันที่จะเข้าพัก</th>
                   <th>วันที่จะออก</th>
                   <th>จำนวนเงินที่ต้องจ่าย</th>
+                  <th>Tools</th>
                 </tr>
               </thead>
               <% @rooms.customer.each do |reservation| %>
@@ -62,6 +63,8 @@
                   <% total = (@rooms.room_price).to_i * (1) %>
                   <% checkout_date = reservation.checkout_date %>
                   <% checkin_date = reservation.booking_date %>
+                  <td>  </td>
+                  <td><%= link_to "DELETE" %> </td>
                 </tr>
               </tbody>
               <% end %>
