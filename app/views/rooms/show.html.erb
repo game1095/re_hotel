@@ -5,7 +5,7 @@
   }
 
   .well2 {
-    min-height: 350px
+    min-height: 430px;
   }
 </style>
 
@@ -13,7 +13,7 @@
   <div class="container">
     <h1 class="text-center">Room Reservation</h1>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="row">
         <div class="col-md-12">
           <div class="well">
@@ -57,6 +57,7 @@
                   <td><%= reservation.first_name%></td>
                   <td><%= reservation.last_name %> </td>
                   <td><%= reservation.tel_no%></td>
+                  <td><%= reservation.booking_date%></td>
                 </tr>
               </tbody>
               <% end %>
@@ -65,7 +66,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 ">
+    <div class="col-md-4 ">
       <div class="well well2">
         <h2>Customer information</h2>
         <%= form_for([@rooms, @rooms.customer.build]) do |f| %>
@@ -82,6 +83,10 @@
         <p>
           <%= f.label :tel_no %>
           <%= f.number_field :tel_no , class: 'form-control' %>
+        </p>
+        <p>
+          <%= f.label :booking_date %>
+          <%= f.date_field :booking_date , class: 'form-control' %>
         </p>
         <p>
           <%= link_to "Back", rooms_path , class: 'btn btn-default button' %>

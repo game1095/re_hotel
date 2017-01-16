@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114095708) do
+ActiveRecord::Schema.define(version: 20170116132026) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "tel_no"
     t.integer  "room_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.date     "booking_date"
     t.index ["room_id"], name: "index_customers_on_room_id"
   end
 

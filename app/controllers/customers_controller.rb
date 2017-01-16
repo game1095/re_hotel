@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
 
   private
   def customer_params
-    params.require(:customer).permit(:first_name , :last_name , :tel_no)
+    params.require(:customer).permit(:first_name , :last_name , :tel_no , :booking_date)
   end
 
 end
