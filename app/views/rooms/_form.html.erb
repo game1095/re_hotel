@@ -1,0 +1,30 @@
+<div class="well">
+  <%= form_for @room  do |f| %>
+  <% if @room.errors.any? %>
+  <div id="errors_explimination">
+    <ul>
+      <% @room.errors.full_messages.each do |msg| %>
+      <li class="alert alert-danger"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+    <p class="form-group">
+      <%= f.label :room_number %>
+      <%= f.text_field :room_number , class: 'form-control' %>
+    </p>
+    <p class="form-group">
+      <%= f.label :room_price %>
+      <%= f.number_field :room_price , class: 'form-control' %>
+    </p>
+
+    <p>
+      <%= f.label :room_des  %>
+      <%= f.text_area :room_des , class: 'form-control' %>
+    </p>
+
+    <p>
+      <%= f.submit class: 'btn btn-primary' %>
+    </p>
+  <% end %>
+</div>

@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ReHotel</title>
+    <title>Hotel Application</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class='container'>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to root_path , class: 'navbar-brand'  do %>
+            <i class="fa fa-users"></i>
+            Room Booking
+            <% end %>
+          </div>
+          <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <div class="nav navbar-nav navbar-right">
+              <% if current_manager %>
+                <li><%= link_to "Employee Page" , employees_path %></li>
+                <li><%= link_to "Room Reservation", rooms_path %></li>
+                <li><%= link_to "Logout", destroy_manager_session_path , method: :delete %></li>
+                <li>Manager : <%= current_manager.email %></li>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <p class="notice alert-success"><%= notice %></p>
+        <p class="alert-danger"><%= alert%> </p>
+    </div>
     <%= yield %>
   </body>
 </html>

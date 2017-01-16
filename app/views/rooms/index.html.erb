@@ -1,0 +1,31 @@
+
+<div class="container">
+  <h1>Room Reservation Page</h1>
+  <div class="well">
+    <p>
+      <%= link_to "BACK" , welcomes_index_path , class: 'btn btn-danger'%>
+      <%= link_to "NEW ROOM" , new_room_path  , class: 'btn btn-primary'%>
+    </p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Room Number</th>
+          <th>Room Price</th>
+        </tr>
+      </thead>
+      <% @rooms.each do |room| %>
+      <tbody>
+        <tr>
+          <td><%= room.id %></td>
+          <td><%= room.room_number %></td>
+          <td><%= room.room_price %>฿</td>
+          <td><%= link_to 'Book' , room_path(room) %></td>
+          <td><%= link_to "Edit" , edit_room_path(room) %></td>
+          <td><%= link_to "Delete" , room_path(room) , method: :delete , data:{confirm: "Are you sure do delete room  #{room.room_number}"} %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
