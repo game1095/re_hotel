@@ -28,7 +28,7 @@
           <td><%= room.room_price %>฿</td>
           <td><%= link_to 'Book' , room_path(room) %></td>
           <td><%= link_to "Edit" , edit_room_path(room) %></td>
-          <td><%= link_to "Delete" , room_path(room) , method: :delete , data:{confirm: "Are you sure do delete room  #{room.room_number}"}%></td>
+          <td><%= link_to "Delete" , room_path(room) , method: :delete , data:{confirm: "Are you sure do delete room  #{room.room_number}"} , class: 'letter'%></td>
         </tr>
       </tbody>
       <% end %>
