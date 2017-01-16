@@ -5,7 +5,7 @@
   }
 
   .well2 {
-    min-height: 430px;
+    min-height: 550px;
   }
 </style>
 
@@ -13,7 +13,7 @@
   <div class="container">
     <h1 class="text-center">Room Reservation</h1>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="row">
         <div class="col-md-12">
           <div class="well">
@@ -32,8 +32,6 @@
               <strong>Description</strong>
               <%= @rooms.room_des %>
             </p>
-
-
           </div>
         </div>
       </div>
@@ -48,7 +46,9 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Telephone Number</th>
-                  <th>Book Date</th>
+                  <th>วันที่จะเข้าพัก</th>
+                  <th>วันที่จะออก</th>
+                  <th>จำนวนเงินที่ต้องจ่าย</th>
                 </tr>
               </thead>
               <% @rooms.customer.each do |reservation| %>
@@ -58,6 +58,10 @@
                   <td><%= reservation.last_name %> </td>
                   <td><%= reservation.tel_no%></td>
                   <td><%= reservation.booking_date%></td>
+                  <td><%= reservation.checkout_date %></td>
+                  <% total = (@rooms.room_price).to_i * (1) %>
+                  <% checkout_date = reservation.checkout_date %>
+                  <% checkin_date = reservation.booking_date %>
                 </tr>
               </tbody>
               <% end %>
@@ -66,10 +70,19 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 ">
+    <div class="col-md-3 ">
       <div class="well well2">
         <h2>Customer information</h2>
         <%= form_for([@rooms, @rooms.customer.build]) do |f| %>
+        <% if @rooms.errors.any? %>
+        <div id="errors_explimination">
+          <ul>
+            <% @rooms.errors.full_messages.each do |msg| %>
+            <li class="alert alert-danger"><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
         <p class="form-group">
           <%= f.label :first_name  %>
           <%= f.text_field :first_name , class: 'form-control' %>
@@ -85,8 +98,12 @@
           <%= f.number_field :tel_no , class: 'form-control' %>
         </p>
         <p>
-          <%= f.label :booking_date %>
+          <%= f.label :วันที่จะเข้าพัก %>
           <%= f.date_field :booking_date , class: 'form-control' %>
+        </p>
+        <p>
+          <%= f.label :วันที่จะออก  %>
+          <%= f.date_field :checkout_date , class: 'form-control' %>
         </p>
         <p>
           <%= link_to "Back", rooms_path , class: 'btn btn-default button' %>

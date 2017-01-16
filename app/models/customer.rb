@@ -3,6 +3,6 @@ class Customer < ApplicationRecord
 
   validates :first_name ,  presence: true
   validates :last_name , presence: true
-  validates :tel_no ,presence: true
-  validates :booking_date , presence: true
+  validates :tel_no ,presence: true , length: { maximum: 10 }
+  validates :booking_date , presence: true , uniqueness: true
 end

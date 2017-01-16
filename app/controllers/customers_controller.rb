@@ -8,9 +8,13 @@ class CustomersController < ApplicationController
     redirect_to @room
   end
 
+  def destroy
+    @customer = @room.customer.destroy(customer_params)
+  end
+
   private
   def customer_params
-    params.require(:customer).permit(:first_name , :last_name , :tel_no , :booking_date)
+    params.require(:customer).permit(:first_name , :last_name , :tel_no , :booking_date , :checkout_date)
   end
 
 end
